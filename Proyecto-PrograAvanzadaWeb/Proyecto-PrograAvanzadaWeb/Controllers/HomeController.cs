@@ -12,13 +12,17 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult contact()
+        {
+            return View();
+        }
+
+        public IActionResult shop()
         {
             return View();
         }

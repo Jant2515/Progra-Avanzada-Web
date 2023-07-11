@@ -7,4 +7,14 @@
     <RootNamespace>Proyecto_PrograAvanzadaWeb</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Shared\contact.cshtml" />
+    <Content Remove="Views\Shared\shop.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\contact.cshtml" />
+    <None Include="Views\Home\shop.cshtml" />
+  </ItemGroup>
+
 </Project>
