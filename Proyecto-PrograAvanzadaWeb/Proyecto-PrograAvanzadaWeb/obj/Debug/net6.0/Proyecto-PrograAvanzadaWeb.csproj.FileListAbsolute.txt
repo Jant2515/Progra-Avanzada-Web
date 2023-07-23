@@ -21,7 +21,6 @@ C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAva
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\scopedcss\bundle\Proyecto-PrograAvanzadaWeb.styles.css
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\scopedcss\projectbundle\Proyecto-PrograAvanzadaWeb.bundle.scp.css
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.dll
@@ -29,3 +28,4 @@ C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAva
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.pdb
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.genruntimeconfig.cache
 C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\ref\Proyecto-PrograAvanzadaWeb.dll
+C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

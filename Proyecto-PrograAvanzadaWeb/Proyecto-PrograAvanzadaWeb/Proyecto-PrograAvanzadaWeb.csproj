@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\contact.cshtml" />
-    <Content Remove="Views\Shared\shop.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
