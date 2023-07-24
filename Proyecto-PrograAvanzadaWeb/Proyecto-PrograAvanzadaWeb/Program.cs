@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Proyecto_PrograAvanzadaWeb.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<VerduleriaContext>(opciones =>
+opciones.UseSqlServer(builder.Configuration.GetConnectionString("VerduleriaContext")));
 
 var app = builder.Build();
 
