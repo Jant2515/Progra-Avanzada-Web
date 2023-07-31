@@ -13,5 +13,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Marca> Marca { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<CarritoCompras> CarritosCompras { get; set; }
     }
 }
