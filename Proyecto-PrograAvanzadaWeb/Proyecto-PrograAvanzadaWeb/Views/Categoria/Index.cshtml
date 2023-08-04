@@ -2,46 +2,48 @@
 
 @{
     ViewData["Title"] = "Listado de Categorias";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<div class="container">
+    <h1>Listado de Categorías</h1>
 
-<h1>Listado de Categorias</h1>
-
-<p>
-    <a asp-controller="Categoria" asp-action="Create">Agregar Categoría</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCategoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Activo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCategoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Activo)
-            </td>
-            <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.IdCategoria }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.IdCategoria }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.IdCategoria })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a class="btn btn-outline-primary" asp-controller="Categoria" asp-action="Create">Agregar Categoría</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCategoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Activo)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.IdCategoria }) |
+    @*                    @Html.ActionLink("Details", "Details", new { id=item.IdCategoria }) |
+    *@                    @Html.ActionLink("Delete", "Delete", new { id=item.IdCategoria })
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>
