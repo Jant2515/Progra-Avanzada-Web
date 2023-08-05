@@ -1,23 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
+using Proyecto_PrograAvanzadaWeb.Services;
 
 namespace Proyecto_PrograAvanzadaWeb.Controllers
 {
     public class UsuarioController : Controller
     {
         private readonly VerduleriaContext _context;
+        private readonly IUsuarioService _usuario;
 
-        public UsuarioController(VerduleriaContext context)
+        public UsuarioController(VerduleriaContext context, IUsuarioService usuarios)
         {
             _context = context;
+            _usuario = usuarios;
         }
 
         // Acción para mostrar la lista de usuarios
         public async Task<IActionResult> Index()
         {
-            var usuarios = await _context.usuario.ToListAsync();
-            return View(usuarios);
+            return View(_usuario.ObtenerUsuarios());
         }
 
         // Acción para mostrar el detalle de un usuario específico
@@ -28,14 +30,13 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuario.FirstOrDefaultAsync(u => u.IdUsuario == id);
-
-            if (usuario == null)
+            var usuarios = _usuario.VerUsuarios(id.Value);
+            if (usuarios == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(usuarios);
         }
 
         // Acción para mostrar la página de crear usuario
@@ -45,17 +46,16 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         // Acción para procesar el formulario de crear usuario
-        public async Task<IActionResult> Create(usuario usuario)
+        public IActionResult Create([Bind("IdUsuario,Nombres,Apellidos,Correo,Contrasena,EsAdministrador,Activo")] usuario usuarios)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
+                _usuario.AgregarUsuarios(usuarios);
                 return RedirectToAction(nameof(Index));
             }
-
-            return View(usuario);
+            return View(usuarios);
         }
 
         // Acción para mostrar la página de editar usuario
@@ -66,48 +66,29 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuario.FindAsync(id);
-
-            if (usuario == null)
+            var usuarios = _usuario.VerUsuarios(id.Value);
+            if (usuarios == null)
             {
                 return NotFound();
             }
-
-            return View(usuario);
+            return View(usuarios);
         }
 
         [HttpPost]
-        // Acción para procesar el formulario de editar usuario
-        public async Task<IActionResult> Edit(int id, usuario usuario)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombres,Apellidos,Correo,Contrasena,EsAdministrador,Activo")] usuario usuarios)
         {
-            if (id != usuario.IdUsuario)
+            if (id != usuarios.IdUsuario)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuarioExists(usuario.IdUsuario))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-
+                _usuario.ModificarUsuarios(usuarios);
                 return RedirectToAction(nameof(Index));
             }
-
-            return View(usuario);
+            return View(usuarios);
         }
 
         // Acción para mostrar la página de eliminar usuario
@@ -118,38 +99,27 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuario.FirstOrDefaultAsync(u => u.IdUsuario == id);
-
-            if (usuario == null)
+            var usuarios = _usuario.VerUsuarios(id.Value);
+            if (usuarios == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(usuarios);
         }
 
         // Acción para procesar la eliminación de un usuario
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var usuario = await _context.usuario.FindAsync(id);
-
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            _context.usuario.Remove(usuario);
-            await _context.SaveChangesAsync();
-
+            _usuario.EliminarUsuarios(id);
             return RedirectToAction(nameof(Index));
         }
 
-        // Método para verificar si un usuario existe
         private bool UsuarioExists(int id)
         {
-            return _context.usuario.Any(u => u.IdUsuario == id);
+            return (_context.usuario?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
         }
     }
 }

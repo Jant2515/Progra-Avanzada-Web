@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
+using Proyecto_PrograAvanzadaWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,17 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<VerduleriaContext>(opciones =>
 opciones.UseSqlServer(builder.Configuration.GetConnectionString("VerduleriaContext")));
+
+//Tipos de Servicios
+builder.Services.AddTransient<ITransientService, TransientService>();
+builder.Services.AddScoped<IScopedService, ScopedService>();
+builder.Services.AddSingleton<ISingletonService, SingletonService>();
+
+//Servios del Proyecto
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddTransient<ICategoriaService, CategoriaService>();
+builder.Services.AddTransient<IMarcaService, MarcaService>();
 
 var app = builder.Build();
 

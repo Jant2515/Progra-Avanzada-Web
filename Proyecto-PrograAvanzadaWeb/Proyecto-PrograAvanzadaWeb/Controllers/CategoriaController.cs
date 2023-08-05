@@ -1,51 +1,99 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
+using Proyecto_PrograAvanzadaWeb.Services;
 
 namespace Proyecto_PrograAvanzadaWeb.Controllers
 {
     public class CategoriaController : Controller
     {
         private readonly VerduleriaContext _context;
+        private readonly ICategoriaService _categoria;
 
-        public CategoriaController(VerduleriaContext context)
+        public CategoriaController(VerduleriaContext context, ICategoriaService categoria)
         {
             _context = context;
+            _categoria = categoria;
         }
 
-        // Acción para mostrar la lista de categorías
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var categorias = _context.Categoria.ToList();
-            return View(categorias);
+            return View(_categoria.ObtenerCategorias());
         }
 
-        // Acción para mostrar el formulario de creación de categoría
-        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var categoria = _categoria.VerCategorias(id.Value);
+            if (categoria == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoria);
+        }
+
         public IActionResult Create()
         {
             return View();
         }
 
-        // Acción para procesar la creación de categoría
         [HttpPost]
-        public IActionResult Create(Categoria categoria)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("IdCategoria,Descripcion,Activo,IdProducto")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                _context.Categoria.Add(categoria);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _categoria.AgregarCategorias(categoria);
+                return RedirectToAction(nameof(Index));
             }
-
             return View(categoria);
         }
 
-        // Acción para mostrar el formulario de edición de categoría
-        [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            var categoria = _context.Categoria.Find(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var categoria = _categoria.VerCategorias(id.Value);
+            if (categoria == null)
+            {
+                return NotFound();
+            }
+            return View(categoria);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IdCategoria,Descripcion,Activo,IdProducto")] Categoria categoria)
+        {
+            if (id != categoria.IdProducto)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _categoria.ModificarCategorias(categoria);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(categoria);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var categoria = _categoria.VerCategorias(id.Value);
             if (categoria == null)
             {
                 return NotFound();
@@ -54,46 +102,17 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View(categoria);
         }
 
-        // Acción para procesar la edición de categoría
-        [HttpPost]
-        public IActionResult Edit(Categoria categoria)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Entry(categoria).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(categoria);
-        }
-
-        // Acción para mostrar el formulario de eliminación de categoría
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var categoria = _context.Categoria.Find(id);
-            if (categoria == null)
-            {
-                return NotFound();
-            }
-
-            return View(categoria);
-        }
-
-        // Acción para procesar la eliminación de categoría
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var categoria = _context.Categoria.Find(id);
-            if (categoria == null)
-            {
-                return NotFound();
-            }
+            _categoria.EliminarCategorias(id);
+            return RedirectToAction(nameof(Index));
+        }
 
-            _context.Categoria.Remove(categoria);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+        private bool CategoriasExists(int id)
+        {
+            return (_context.Categoria?.Any(e => e.IdCategoria == id)).GetValueOrDefault();
         }
     }
 }

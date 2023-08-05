@@ -1,51 +1,99 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
+using Proyecto_PrograAvanzadaWeb.Services;
 
 namespace Proyecto_PrograAvanzadaWeb.Controllers
 {
     public class MarcaController : Controller
     {
         private readonly VerduleriaContext _context;
+        private readonly IMarcaService _marca;
 
-        public MarcaController(VerduleriaContext context)
+        public MarcaController(VerduleriaContext context, IMarcaService marca)
         {
             _context = context;
+            _marca = marca;
         }
 
-        // Acción para mostrar la lista de marcas
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var marcas = _context.Marca.ToList();
-            return View(marcas);
+            return View(_marca.ObtenerMarcas());
         }
 
-        // Acción para mostrar el formulario de creación de marca
-        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var marca = _marca.VerMarcas(id.Value);
+            if (marca == null)
+            {
+                return NotFound();
+            }
+
+            return View(marca);
+        }
+
         public IActionResult Create()
         {
             return View();
         }
 
-        // Acción para procesar la creación de marca
         [HttpPost]
-        public IActionResult Create(Marca marca)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("IdMarca,Descripcion,Activo,IdProducto")] Marca marca)
         {
             if (ModelState.IsValid)
             {
-                _context.Marca.Add(marca);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _marca.AgregarMarcas(marca);
+                return RedirectToAction(nameof(Index));
             }
-
             return View(marca);
         }
 
-        // Acción para mostrar el formulario de edición de marca
-        [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            var marca = _context.Marca.Find(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var marca = _marca.VerMarcas(id.Value);
+            if (marca == null)
+            {
+                return NotFound();
+            }
+            return View(marca);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,Descripcion,Activo,IdProducto")] Marca marca)
+        {
+            if (id != marca.IdMarca)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _marca.ModificarMarcas(marca);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(marca);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var marca = _marca.VerMarcas(id.Value);
             if (marca == null)
             {
                 return NotFound();
@@ -54,46 +102,17 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View(marca);
         }
 
-        // Acción para procesar la edición de marca
-        [HttpPost]
-        public IActionResult Edit(Marca marca)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Entry(marca).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(marca);
-        }
-
-        // Acción para mostrar el formulario de eliminación de marca
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var marca = _context.Marca.Find(id);
-            if (marca == null)
-            {
-                return NotFound();
-            }
-
-            return View(marca);
-        }
-
-        // Acción para procesar la eliminación de marca
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var marca = _context.Marca.Find(id);
-            if (marca == null)
-            {
-                return NotFound();
-            }
+            _marca.EliminarMarcas(id);
+            return RedirectToAction(nameof(Index));
+        }
 
-            _context.Marca.Remove(marca);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+        private bool MarcasExists(int id)
+        {
+            return (_context.Marca?.Any(e => e.IdMarca == id)).GetValueOrDefault();
         }
     }
 }

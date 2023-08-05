@@ -1,51 +1,99 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
+using Proyecto_PrograAvanzadaWeb.Services;
 
 namespace Proyecto_PrograAvanzadaWeb.Controllers
 {
     public class ProductoController : Controller
     {
         private readonly VerduleriaContext _context;
+        private readonly IProductoService _producto;
 
-        public ProductoController(VerduleriaContext context)
+        public ProductoController(VerduleriaContext context, IProductoService producto)
         {
             _context = context;
+            _producto = producto;
         }
 
-        // Acción para mostrar la lista de productos
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var productos = _context.Producto.ToList();
-            return View(productos);
+            return View(_producto.ObtenerProductos());
         }
 
-        // Acción para mostrar el formulario de creación de producto
-        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var producto = _producto.VerProductos(id.Value);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
+            return View(producto);
+        }
+
         public IActionResult Create()
         {
             return View();
         }
 
-        // Acción para procesar la creación de producto
         [HttpPost]
-        public IActionResult Create(Producto producto)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("IdProducto,Nombre,Descripcion,Precio,Stock,RutaImagen,Activo,Marca,Categoria")] Producto producto)
         {
             if (ModelState.IsValid)
             {
-                _context.Producto.Add(producto);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _producto.AgregarProductos(producto);
+                return RedirectToAction(nameof(Index));
             }
-
             return View(producto);
         }
 
-        // Acción para mostrar el formulario de edición de producto
-        [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            var producto = _context.Producto.Find(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var producto = _producto.VerProductos(id.Value);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+            return View(producto);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IdProducto,Nombre,Descripcion,Precio,Stock,RutaImagen,Activo,Marca,Categoria")] Producto producto)
+        {
+            if (id != producto.IdProducto)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _producto.ModificarProductos(producto);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(producto);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var producto = _producto.VerProductos(id.Value);
             if (producto == null)
             {
                 return NotFound();
@@ -54,46 +102,17 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View(producto);
         }
 
-        // Acción para procesar la edición de producto
-        [HttpPost]
-        public IActionResult Edit(Producto producto)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Entry(producto).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(producto);
-        }
-
-        // Acción para mostrar el formulario de eliminación de producto
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var producto = _context.Producto.Find(id);
-            if (producto == null)
-            {
-                return NotFound();
-            }
-
-            return View(producto);
-        }
-
-        // Acción para procesar la eliminación de producto
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var producto = _context.Producto.Find(id);
-            if (producto == null)
-            {
-                return NotFound();
-            }
+            _producto.EliminarProductos(id);
+            return RedirectToAction(nameof(Index));
+        }
 
-            _context.Producto.Remove(producto);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+        private bool ProductoExists(int id)
+        {
+            return (_context.Producto?.Any(e => e.IdProducto == id)).GetValueOrDefault();
         }
     }
 }

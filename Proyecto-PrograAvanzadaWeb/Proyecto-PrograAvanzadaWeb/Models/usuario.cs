@@ -13,5 +13,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public string ConfirmarContrasena { get; set; }
         public bool EsAdministrador { get; set; }
         public bool Activo { get; set; }
+
     }
 }
