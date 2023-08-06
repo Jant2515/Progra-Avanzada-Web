@@ -24,7 +24,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CarritoCompras>> GetCarritoCompra(int id)
         {
-            var carritoCompra = await _dbContext.CarritosCompras.Include(c => c.Producto).FirstOrDefaultAsync(c => c.IdCarrito == id);
+            var carritoCompra = await _dbContext.CarritosCompras.Include(c => c.Producto).FirstOrDefaultAsync(c => c.Id == id);
 
             if (carritoCompra == null)
             {
@@ -40,13 +40,13 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             _dbContext.CarritosCompras.Add(carritoCompra);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetCarritoCompra", new { id = carritoCompra.IdCarrito }, carritoCompra);
+            return CreatedAtAction("GetCarritoCompra", new { id = carritoCompra.Id }, carritoCompra);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCarritoCompra(int id, CarritoCompras carritoCompra)
         {
-            if (id != carritoCompra.IdCarrito)
+            if (id != carritoCompra.Id)
             {
                 return BadRequest();
             }
@@ -89,7 +89,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         private bool CarritoCompraExists(int id)
         {
-            return _dbContext.CarritosCompras.Any(e => e.IdCarrito == id);
+            return _dbContext.CarritosCompras.Any(e => e.Id == id);
         }
     }
 }   
