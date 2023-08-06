@@ -73,7 +73,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdCategoria,Descripcion,Activo,IdProducto")] Categoria categoria)
         {
-            if (id != categoria.IdProducto)
+            if (id != categoria.IdCategoria)
             {
                 return NotFound();
             }
