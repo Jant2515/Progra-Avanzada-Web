@@ -9,6 +9,7 @@ namespace Proyecto_PrograAvanzadaWeb.Models
             : base(opciones)
         {
         }
+
         public DbSet<usuario> usuario { get; set; }
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Marca> Marca { get; set; }
@@ -17,41 +18,52 @@ namespace Proyecto_PrograAvanzadaWeb.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Marca>(Marca =>
+            modelBuilder.Entity<Marca>(marca =>
             {
-                Marca.HasKey(x => x.IdMarca);
-                Marca.Property(x => x.Descripcion)
-                .IsRequired()
-                .HasMaxLength(100)
-                .IsUnicode(false);
+                marca.HasKey(x => x.IdMarca);
+                marca.Property(x => x.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                marca.HasMany(m => m.ProductosDeMarca)
+                    .WithOne(p => p.oMarca)
+                    .HasForeignKey(p => p.IdMarca);
             });
 
-            modelBuilder.Entity<Categoria>(Categoria =>
+            modelBuilder.Entity<Categoria>(categoria =>
             {
-                Categoria.HasKey(x => x.IdCategoria);
-                Categoria.Property(x => x.Descripcion)
-                .IsRequired()
-                .HasMaxLength(100)
-                .IsUnicode(false);
+                categoria.HasKey(x => x.IdCategoria);
+                categoria.Property(x => x.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                categoria.HasMany(c => c.ProductosDeCategoria)
+                    .WithOne(p => p.oCategoria)
+                    .HasForeignKey(p => p.IdCategoria);
             });
 
-            modelBuilder.Entity<Producto>(Producto =>
+            modelBuilder.Entity<Producto>(producto =>
             {
-                Producto.HasKey(x => x.IdProducto);
-                Producto.Property(x => x.Nombre)
-                .IsRequired()
-                .HasMaxLength(255)
-                .IsUnicode(false);
-                Producto.Property(x => x.Descripcion)
-                .IsRequired()
-                .HasMaxLength(255)
-                .IsUnicode(false);
+                producto.HasKey(x => x.IdProducto);
+                producto.Property(x => x.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                producto.Property(x => x.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                producto.HasOne(x => x.oMarca)
+                    .WithMany(m => m.ProductosDeMarca)
+                    .HasForeignKey(x => x.IdMarca);
+
+                producto.HasOne(x => x.oCategoria)
+                    .WithMany(c => c.ProductosDeCategoria)
+                    .HasForeignKey(x => x.IdCategoria);
             });
-
-
-
         }
-
-
     }
 }

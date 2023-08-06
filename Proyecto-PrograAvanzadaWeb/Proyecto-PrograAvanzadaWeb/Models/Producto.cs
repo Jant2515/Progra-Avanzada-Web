@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 
 namespace Proyecto_PrograAvanzadaWeb.Models
@@ -13,9 +14,14 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public int Stock { get; set; }
         public string RutaImagen { get; set; }
         public bool Activo { get; set; }
+        [ForeignKey("IdMarca")]
+        [InverseProperty("ProductosDeMarca")]
         public int IdMarca { get; set; }
-        public int IdCategoria { get; set; }
         public Marca oMarca { get; set; }
+
+        [ForeignKey("IdCategoria")]
+        [InverseProperty("ProductosDeCategoria")]
+        public int IdCategoria { get; set; }
         public Categoria oCategoria { get; set; }
     }
 }
