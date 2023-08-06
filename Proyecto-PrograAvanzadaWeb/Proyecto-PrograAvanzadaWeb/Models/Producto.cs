@@ -1,9 +1,11 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace Proyecto_PrograAvanzadaWeb.Models
 {
     public class Producto
     {
+        [Key]
         public int IdProducto { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -13,5 +15,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public bool Activo { get; set; }
         public List<Marca> Marca { get; set; }
         public List<Categoria> Categoria { get; set; }
+        public CarritoCompras? CarritoCompras { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Proyecto_PrograAvanzadaWeb.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto_PrograAvanzadaWeb.Models;
 
 namespace Proyecto_PrograAvanzadaWeb.Services
 {
@@ -50,7 +51,7 @@ namespace Proyecto_PrograAvanzadaWeb.Services
 
         public List<Marca> ObtenerMarcas()
         {
-            var ListaMarcas = _context.Marca.ToList();
+            var ListaMarcas = _context.Marca.Include(x => x.Producto).ToList();
             return ListaMarcas;
         }
 

@@ -1,4 +1,5 @@
-﻿using Proyecto_PrograAvanzadaWeb.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto_PrograAvanzadaWeb.Models;
 
 namespace Proyecto_PrograAvanzadaWeb.Services
 {
@@ -50,7 +51,7 @@ namespace Proyecto_PrograAvanzadaWeb.Services
 
         public List<Categoria> ObtenerCategorias()
         {
-            var ListaCategorias = _context.Categoria.ToList();
+            var ListaCategorias = _context.Categoria.Include(x => x.Producto).ToList();
             return ListaCategorias;
         }
 

@@ -13,6 +13,7 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public string ConfirmarContrasena { get; set; }
         public bool EsAdministrador { get; set; }
         public bool Activo { get; set; }
+        public CarritoCompras? CarritoCompras { get; set; }
 
     }
 }
