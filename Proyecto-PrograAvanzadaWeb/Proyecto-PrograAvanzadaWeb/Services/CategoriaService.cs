@@ -51,7 +51,7 @@ namespace Proyecto_PrograAvanzadaWeb.Services
 
         public List<Categoria> ObtenerCategorias()
         {
-            var ListaCategorias = _context.Categoria.Include(x => x.Producto).ToList();
+            var ListaCategorias = _context.Categoria.ToList();
             return ListaCategorias;
         }
 

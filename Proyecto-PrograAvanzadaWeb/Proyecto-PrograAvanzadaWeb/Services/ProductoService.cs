@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
 
@@ -52,7 +53,10 @@ namespace Proyecto_PrograAvanzadaWeb.Services
 
         public List<Producto> ObtenerProductos()
         {
-            var ListaProductos = _context.Producto.ToList();
+            var ListaProductos = _context.Producto
+                .Include(x => x.oMarca)
+                .Include(y => y.oCategoria)
+                .ToList();
             return ListaProductos;
         }
 

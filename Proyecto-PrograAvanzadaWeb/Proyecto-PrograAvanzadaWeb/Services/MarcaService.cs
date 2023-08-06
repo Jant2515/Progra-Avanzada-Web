@@ -51,7 +51,7 @@ namespace Proyecto_PrograAvanzadaWeb.Services
 
         public List<Marca> ObtenerMarcas()
         {
-            var ListaMarcas = _context.Marca.Include(x => x.Producto).ToList();
+            var ListaMarcas = _context.Marca.ToList();
             return ListaMarcas;
         }
 

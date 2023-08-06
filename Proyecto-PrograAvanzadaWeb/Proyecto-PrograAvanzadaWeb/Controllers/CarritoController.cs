@@ -18,13 +18,13 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CarritoCompras>>> GetCarritosCompras()
         {
-            return await _dbContext.CarritosCompras.Include(c => c.Producto).ToListAsync();
+            return await _dbContext.CarritosCompras.Include(c => c.oProducto).ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CarritoCompras>> GetCarritoCompra(int id)
         {
-            var carritoCompra = await _dbContext.CarritosCompras.Include(c => c.Producto).FirstOrDefaultAsync(c => c.IdCarrito == id);
+            var carritoCompra = await _dbContext.CarritosCompras.Include(c => c.oProducto).FirstOrDefaultAsync(c => c.IdCarrito == id);
 
             if (carritoCompra == null)
             {

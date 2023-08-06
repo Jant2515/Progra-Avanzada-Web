@@ -6,7 +6,7 @@ namespace Proyecto_PrograAvanzadaWeb.Models
     {
         [Key]
         public int IdCarrito { get; set; }
-        public List<Producto> Producto { get; set; }
-        public List<usuario>? usuario { get; set; }
+        public Producto oProducto { get; set; }
+        public usuario oUsuario { get; set; }
     }
 }
