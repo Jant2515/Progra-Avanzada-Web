@@ -25,10 +25,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
-
-                marca.HasMany(m => m.ProductosDeMarca)
-                    .WithOne(p => p.oMarca)
-                    .HasForeignKey(p => p.IdMarca);
             });
 
             modelBuilder.Entity<Categoria>(categoria =>
@@ -38,10 +34,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
-
-                categoria.HasMany(c => c.ProductosDeCategoria)
-                    .WithOne(p => p.oCategoria)
-                    .HasForeignKey(p => p.IdCategoria);
             });
 
             modelBuilder.Entity<Producto>(producto =>
@@ -56,13 +48,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                producto.HasOne(x => x.oMarca)
-                    .WithMany(m => m.ProductosDeMarca)
-                    .HasForeignKey(x => x.IdMarca);
-
-                producto.HasOne(x => x.oCategoria)
-                    .WithMany(c => c.ProductosDeCategoria)
-                    .HasForeignKey(x => x.IdCategoria);
             });
         }
     }

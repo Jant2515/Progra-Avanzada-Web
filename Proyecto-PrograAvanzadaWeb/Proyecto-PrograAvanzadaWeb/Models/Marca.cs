@@ -9,7 +9,5 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public int IdMarca { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
-        [InverseProperty("oMarca")]
-        public List<Producto> ProductosDeMarca { get; set; }
     }
 }
