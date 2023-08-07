@@ -39,8 +39,6 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Marcas = _context.Marca.ToList();
-            ViewBag.Categorias = _context.Categoria.ToList();
             return View();
         }
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Downloads\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj": {}
+    "C:\\Users\\josea\\Documents\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Downloads\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj": {
+    "C:\\Users\\josea\\Documents\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Downloads\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj",
+        "projectUniqueName": "C:\\Users\\josea\\Documents\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj",
         "projectName": "Proyecto-PrograAvanzadaWeb",
-        "projectPath": "C:\\Users\\Usuario\\Downloads\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Downloads\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\obj\\",
+        "projectPath": "C:\\Users\\josea\\Documents\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj",
+        "packagesPath": "C:\\Users\\josea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josea\\Documents\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

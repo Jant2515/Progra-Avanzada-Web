@@ -5,117 +5,132 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proyecto_PrograAvanzadaWeb
 build_property.RootNamespace = Proyecto_PrograAvanzadaWeb
-build_property.ProjectDir = C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\
+build_property.ProjectDir = C:\Users\josea\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb
+build_property.MSBuildProjectDirectory = C:\Users\josea\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Create.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Delete.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Edit.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Index.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/contact.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Index.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Inicio.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Inicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Privacy.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/shop.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Home/shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Login/Login.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Login/Register.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Create.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Delete.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Edit.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Index.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Marca/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Create.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Delete.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Edit.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Index.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/Error.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_ViewStart.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/_ViewImports.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Usuario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Usuario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Usuario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6dfo12ogjt
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_LayoutAdmin.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-ek6sgmpvge
 
-[C:/Users/Usuario/Downloads/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_LayoutLogin.cshtml]
+[C:/Users/josea/Documents/GitHub/Progra-Avanzada-Web/Proyecto-PrograAvanzadaWeb/Proyecto-PrograAvanzadaWeb/Views/Shared/_LayoutLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-kmy24esdo3

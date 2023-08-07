@@ -44,7 +44,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("IdMarca,Descripcion,Activo,IdProducto")] Marca marca)
+        public IActionResult Create([Bind("IdMarca,Descripcion,Activo")] Marca marca)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,Descripcion,Activo,IdProducto")] Marca marca)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,Descripcion,Activo")] Marca marca)
         {
             if (id != marca.IdMarca)
             {
