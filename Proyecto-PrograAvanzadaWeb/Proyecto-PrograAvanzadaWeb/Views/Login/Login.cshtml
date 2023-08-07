@@ -3,9 +3,10 @@
 @{
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
-<div class="container">
-    <br
-    <br />
+
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+<div class="container" style="background-color: #F6F4EB">
+	
     <h2>Iniciar Sesión</h2>
 
     @if (!string.IsNullOrEmpty(Model))
@@ -24,6 +25,9 @@
             <label for="contrasena">Contraseña</label>
             <input type="password" class="form-control" id="contrasena" name="contrasena" required>
         </div>
-        <button type="submit" class="btn btn-outline-success">Iniciar Sesión</button>
+        <div style="text-align:center !important">
+            <button type="submit" class="btn btn-outline-success">Iniciar Sesión</button>
+            <a class="btn btn-outline-primary" asp-controller="Login" asp-action="Register">Registrarse</a>
+        </div>
     </form>
 </div>
