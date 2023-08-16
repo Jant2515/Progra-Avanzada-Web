@@ -54,8 +54,8 @@ namespace Proyecto_PrograAvanzadaWeb.Services
         public List<Producto> ObtenerProductos()
         {
             var ListaProductos = _context.Producto
-                .Include(x => x.oMarca)
-                .Include(y => y.oCategoria)
+                .Include(x => x.Marca)
+                .Include(y => y.Categoria)
                 .ToList();
             return ListaProductos;
         }

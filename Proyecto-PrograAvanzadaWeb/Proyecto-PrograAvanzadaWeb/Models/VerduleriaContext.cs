@@ -49,6 +49,15 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                     .IsUnicode(false);
 
             });
+
+            modelBuilder.Entity<Producto>()
+                .HasOne(x => x.Marca)
+                .WithMany(s => s.Producto)
+                .HasForeignKey(f => f.IdMarca);
+            modelBuilder.Entity<Producto>()
+                .HasOne(u => u.Categoria)
+                .WithMany(s => s.Producto)
+                .HasForeignKey(f => f.IdCategoria);
         }
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
 using Proyecto_PrograAvanzadaWeb.Services;
@@ -16,6 +17,7 @@ builder.Services.AddScoped<IScopedService, ScopedService>();
 builder.Services.AddSingleton<ISingletonService, SingletonService>();
 
 //Sesiones
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(opciones =>
 {
@@ -23,6 +25,7 @@ builder.Services.AddSession(opciones =>
     opciones.Cookie.HttpOnly = true;
     opciones.Cookie.IsEssential = true;
 });
+
 
 //Servios del Proyecto
 builder.Services.AddScoped<IProductoService, ProductoService>();
@@ -46,9 +49,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
 
 app.Run();

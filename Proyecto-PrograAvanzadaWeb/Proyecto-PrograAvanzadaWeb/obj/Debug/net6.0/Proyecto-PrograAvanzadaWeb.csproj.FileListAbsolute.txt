@@ -830,3 +830,4 @@ C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyec
 C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.pdb
 C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.genruntimeconfig.cache
 C:\Users\Usuario\Downloads\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\ref\Proyecto-PrograAvanzadaWeb.dll
+C:\Users\vicjc\OneDrive\Documentos\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll

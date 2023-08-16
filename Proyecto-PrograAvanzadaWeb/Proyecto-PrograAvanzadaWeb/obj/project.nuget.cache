@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qN5hn0XA7Q5fXVJLMcIIzRe8CAvrldUGDBjLUGpBzlwufjc8P/dPn0Rc1IcKYgYC17VUpDN4ccfcZ1qybWVJhg==",
+  "dgSpecHash": "4yyde1wgLAZEV/Oj8bzV3vanptXFAW0xbQNk7bdz8OjRIigcAvScee7DTmmiPfne57FPZZ9l+IOVhisKh3xpnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vicjc\\OneDrive\\Documentos\\GitHub\\Progra-Avanzada-Web\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb\\Proyecto-PrograAvanzadaWeb.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vicjc\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\vicjc\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\vicjc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\vicjc\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

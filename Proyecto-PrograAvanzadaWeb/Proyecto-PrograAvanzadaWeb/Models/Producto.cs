@@ -14,14 +14,12 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public int Stock { get; set; }
         public string RutaImagen { get; set; }
         public bool Activo { get; set; }
-        [ForeignKey("IdMarca")]
-        [InverseProperty("ProductosDeMarca")]
         public int IdMarca { get; set; }
-        public Marca oMarca { get; set; }
+        public Marca? Marca { get; set; }
 
-        [ForeignKey("IdCategoria")]
-        [InverseProperty("ProductosDeCategoria")]
         public int IdCategoria { get; set; }
-        public Categoria oCategoria { get; set; }
+        public  Categoria? Categoria { get; set; }
+
+
     }
 }
