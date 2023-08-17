@@ -44,7 +44,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("IdCategoria,Descripcion,Activo")] Categoria categoria)
+        public IActionResult Create([Bind("Descripcion,Activo")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -53,6 +53,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             }
             return View(categoria);
         }
+
 
         public async Task<IActionResult> Edit(int? id)
         {

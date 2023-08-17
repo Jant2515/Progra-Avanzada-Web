@@ -86,6 +86,8 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View(producto);
         }
 
+
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
