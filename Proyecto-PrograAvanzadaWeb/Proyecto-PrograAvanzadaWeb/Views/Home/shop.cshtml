@@ -1,14 +1,15 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model IEnumerable<Proyecto_PrograAvanzadaWeb.Models.Producto>
 
 <body class="goto-here">
-   
+
     <div class="hero-wrap hero-bread" style="background-image: url('../images/bg_1.jpg');">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Producto" asp-action="Index"></a></span> <span>Productos</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Producto" asp-action="Index">Inicio</a></span> <span>Productos</span></p>
                     <h1 class="mb-0 bread">Productos</h1>
                 </div>
             </div>
@@ -18,26 +19,31 @@
     <section class="ftco-section">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="card product">
-                        <a href="#" class="img-prod">
-                            <img class="card-img-top img-fluid" src="../images/product-1.jpg" alt="Colorlib Template">
-                            <span class="status">30%</span>
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="card-body text-center">
-                            <h3 class="card-title"><a href="#">Bell Pepper</a></h3>
-                            <div class="d-flex justify-content-center">
-                                <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc"><s>$120.00</s></span></p>
-                                    <p class="price"><span class="price-sale">$80.00</span></p>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="card product">
+                            <a href="#" class="img-prod">
+                                <img class="card-img-top img-fluid" src="@item.RutaImagen" alt="Imagen del producto">
+                                <span class="status">@item.Activo</span>
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="card-body text-center">
+                                <h3 class="card-title"><a href="#">@item.Nombre</a></h3>
+                                <div class="d-flex justify-content-center">
+                                    <div class="pricing">
+                                        <p class="price">
+                                            <span class="price-sale">@item.Precio.ToString("C")</span>
+                                        </p>
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary">Añadir al carrito</button>
                             </div>
-                            <button class="btn btn-primary">Añadir al carrito</button>
                         </div>
                     </div>
-                </div>
+                }
             </div>
+
         </div>
     </section>
 
