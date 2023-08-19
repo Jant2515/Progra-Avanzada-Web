@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
 using Proyecto_PrograAvanzadaWeb.Services;
@@ -44,7 +45,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Descripcion,Activo")] Marca marca)
+        public IActionResult Create([Bind("IdMarca,Descripcion,Activo")] Marca marca)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +73,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,Descripcion,Activo")] Marca marca)
+        public async Task<IActionResult> Edit(int id,[Bind("IdMarca,Descripcion,Activo")] Marca marca)
         {
             if (id != marca.IdMarca)
             {

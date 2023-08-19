@@ -9,5 +9,6 @@ namespace Proyecto_PrograAvanzadaWeb.Services
         bool ModificarProductos(Producto producto);
         void EliminarProductos(int id);
         Producto VerProductos(int ID);
+        bool TareaExists(int idProducto);
     }
 }

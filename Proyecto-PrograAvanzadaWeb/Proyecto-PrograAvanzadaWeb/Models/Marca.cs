@@ -9,7 +9,7 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public int IdMarca { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
-        public List<Producto> Producto { get; set; }
+        public List<Producto>? Producto { get; set; }
 
     }
 }

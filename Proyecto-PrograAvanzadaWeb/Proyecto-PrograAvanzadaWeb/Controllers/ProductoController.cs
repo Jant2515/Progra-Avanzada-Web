@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
 using Proyecto_PrograAvanzadaWeb.Services;
@@ -39,12 +40,14 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
 
         public IActionResult Create()
         {
+            ViewData["DropMarcas"] = new SelectList(_context.Marca, "IdMarca", "Descripcion");
+            ViewData["DropCategorias"] = new SelectList(_context.Categoria, "IdCategoria", "Descripcion");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("IdProducto,Nombre,Descripcion,Precio,Stock,RutaImagen,Activo,Marca,Categoria")] Producto producto)
+        public IActionResult Create([Bind("IdProducto,Nombre,Descripcion,Precio,Stock,RutaImagen,Activo,IdMarca,IdCategoria")] Producto producto)
         {
             if (ModelState.IsValid)
             {

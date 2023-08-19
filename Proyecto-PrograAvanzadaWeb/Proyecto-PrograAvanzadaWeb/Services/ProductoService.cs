@@ -60,6 +60,10 @@ namespace Proyecto_PrograAvanzadaWeb.Services
             return ListaProductos;
         }
 
+        public bool TareaExists(int idProducto)
+        {
+            throw new NotImplementedException();
+        }
 
         public Producto VerProductos(int ID)
         {
