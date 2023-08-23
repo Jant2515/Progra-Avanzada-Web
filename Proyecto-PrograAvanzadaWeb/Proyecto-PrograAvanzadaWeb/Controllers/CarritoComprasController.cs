@@ -23,16 +23,24 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View();
         }
 
+    
+
         // Agregar productos al carrito
         public async Task<IActionResult> AgregarAlCarrito(int idProducto, int cantidad)
         {
             var usuarioId = ObtenerIdUsuarioActual();
 
-            var carrito = await _dbContext.CarritosCompras
+            var carrito = await _dbContext.CarritoCompras
                 .Include(c => c.CarritoItems)
                 .FirstOrDefaultAsync(c => c.IdUsuario == usuarioId);
 
             var producto = await _dbContext.Producto.FindAsync(idProducto);
+
+            if (producto == null || producto.Stock < cantidad)
+            {
+                // Handle insufficient stock error
+                return RedirectToAction("Error"); // Redirect to an error page or handle as needed
+            }
 
             if (carrito == null)
             {
@@ -41,7 +49,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                     IdUsuario = usuarioId,
                     CarritoItems = new List<CarritoItem>()
                 };
-                _dbContext.CarritosCompras.Add(carrito);
+                _dbContext.CarritoCompras.Add(carrito);
             }
 
             var carritoItem = carrito.CarritoItems.FirstOrDefault(item => item.IdProducto == idProducto);
@@ -60,10 +68,13 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                 carritoItem.Cantidad += cantidad;
             }
 
+            producto.Stock -= cantidad; // Deduct the purchased quantity from stock
             await _dbContext.SaveChangesAsync();
 
-            return RedirectToAction("Index"); // Redirigir a la vista del carrito
+            return RedirectToAction("Index"); // Redirect to the cart view
         }
+
+
 
         // Implementa métodos para eliminar y actualizar cantidades de productos en el carrito
 

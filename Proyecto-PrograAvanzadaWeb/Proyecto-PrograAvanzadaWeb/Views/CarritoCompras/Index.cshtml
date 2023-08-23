@@ -1,0 +1,35 @@
+﻿
+@model Proyecto_PrograAvanzadaWeb.Models.CarritoCompras
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<h2>Carrito de Compras</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CarritoItems)
+        {
+            <tr>
+                <td>@item.Producto.Nombre</td>
+                <td>@item.Cantidad</td>
+                <td>@item.Producto.Precio</td>
+                <td>@(item.Cantidad * item.Producto.Precio)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="CarritoCompras" asp-action="RealizarCompra">Realizar Compra</a>
