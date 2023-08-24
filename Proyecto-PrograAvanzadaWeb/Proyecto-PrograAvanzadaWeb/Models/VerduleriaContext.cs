@@ -14,8 +14,7 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Marca> Marca { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<CarritoCompras> CarritoCompras { get; set; }
-        public DbSet<CarritoItem> CarritoItems { get; set; }
+        public DbSet<CarritoItem> CarritoItem { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,6 +50,15 @@ namespace Proyecto_PrograAvanzadaWeb.Models
 
             });
 
+            modelBuilder.Entity<CarritoItem>(carritoitem =>
+            {
+                carritoitem.HasKey(ci => ci.IdCarritoItem);
+                carritoitem.Property(ci => ci.Cantidad);
+               
+
+            });
+
+
             modelBuilder.Entity<Producto>()
                 .HasOne(x => x.Marca)
                 .WithMany(s => s.Producto)
@@ -59,25 +67,13 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                 .HasOne(u => u.Categoria)
                 .WithMany(s => s.Producto)
                 .HasForeignKey(f => f.IdCategoria);
+  
 
-            modelBuilder.Entity<CarritoCompras>(carrito =>
-            {
-                carrito.HasKey(x => x.IdCarrito);
-                carrito.HasMany(c => c.CarritoItems)
-                    .WithOne(ci => ci.CarritoCompras)
-                    .HasForeignKey(ci => ci.IdCarrito);
-            });
-
-            modelBuilder.Entity<CarritoItem>(item =>
-            {
-                item.HasKey(x => x.IdCarritoItem);
-                item.HasOne(ci => ci.CarritoCompras)
-                    .WithMany(c => c.CarritoItems)
-                    .HasForeignKey(ci => ci.IdCarrito);
-                item.HasOne(ci => ci.Producto)
-                    .WithMany() // Producto does not reference CarritoItems directly
-                    .HasForeignKey(ci => ci.IdProducto);
-            });
+            modelBuilder.Entity<CarritoItem>()
+                .HasOne(ci => ci.Producto)
+                .WithMany()
+                .HasForeignKey(ci => ci.IdProducto);
+       
         }
     }
 }

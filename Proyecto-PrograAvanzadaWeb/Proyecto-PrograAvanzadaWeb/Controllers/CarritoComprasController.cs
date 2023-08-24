@@ -1,89 +1,73 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_PrograAvanzadaWeb.Models;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Proyecto_PrograAvanzadaWeb.Controllers
 {
     public class CarritoComprasController : Controller
     {
+        private readonly VerduleriaContext _context;
 
-        private readonly VerduleriaContext _dbContext;
-
-        public CarritoComprasController(VerduleriaContext dbContext)
+        public CarritoComprasController(VerduleriaContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
-
 
         public IActionResult Index()
         {
-            return View();
+            var carritoItems = _context.CarritoItem
+                .Include(ci => ci.Producto).ToList();
+            ViewBag.Total = CalcularTotal(carritoItems);
+
+            return View(carritoItems);
         }
 
-    
+     
 
-        // Agregar productos al carrito
-        public async Task<IActionResult> AgregarAlCarrito(int idProducto, int cantidad)
+
+        public IActionResult AgregarAlCarrito(int idProducto, int cantidad)
         {
-            var usuarioId = ObtenerIdUsuarioActual();
+            var producto = _context.Producto.Find(idProducto);
 
-            var carrito = await _dbContext.CarritoCompras
-                .Include(c => c.CarritoItems)
-                .FirstOrDefaultAsync(c => c.IdUsuario == usuarioId);
-
-            var producto = await _dbContext.Producto.FindAsync(idProducto);
-
-            if (producto == null || producto.Stock < cantidad)
+            if (producto == null)
             {
-                // Handle insufficient stock error
-                return RedirectToAction("Error"); // Redirect to an error page or handle as needed
+                return NotFound();
             }
 
-            if (carrito == null)
+            var carritoItem = new CarritoItem
             {
-                carrito = new CarritoCompras
-                {
-                    IdUsuario = usuarioId,
-                    CarritoItems = new List<CarritoItem>()
-                };
-                _dbContext.CarritoCompras.Add(carrito);
-            }
+                Producto = producto,
+                Cantidad = cantidad
+            };
 
-            var carritoItem = carrito.CarritoItems.FirstOrDefault(item => item.IdProducto == idProducto);
+            _context.CarritoItem.Add(carritoItem);
+            _context.SaveChanges();
 
-            if (carritoItem == null)
-            {
-                carritoItem = new CarritoItem
-                {
-                    IdProducto = idProducto,
-                    Cantidad = cantidad
-                };
-                carrito.CarritoItems.Add(carritoItem);
-            }
-            else
-            {
-                carritoItem.Cantidad += cantidad;
-            }
-
-            producto.Stock -= cantidad; // Deduct the purchased quantity from stock
-            await _dbContext.SaveChangesAsync();
-
-            return RedirectToAction("Index"); // Redirect to the cart view
+            return RedirectToAction("Index");
         }
 
-
-
-        // Implementa métodos para eliminar y actualizar cantidades de productos en el carrito
-
-        private int ObtenerIdUsuarioActual()
+        public IActionResult EliminarDelCarrito(int idCarritoItem)
         {
-            // Lógica para obtener el ID del usuario actual
-            // Puedes usar la autenticación de .NET Core
-            return 1; // Solo como ejemplo
+            var carritoItem = _context.CarritoItem.Find(idCarritoItem);
+
+            if (carritoItem != null)
+            {
+                _context.CarritoItem.Remove(carritoItem);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
-    
-}
+
+        private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)
+        {
+            decimal total = 0;
+            foreach (var item in carritoItems)
+            {
+                total += item.Producto.Precio * item.Cantidad;
+            }
+            return total;
+        }
+    }
 }
