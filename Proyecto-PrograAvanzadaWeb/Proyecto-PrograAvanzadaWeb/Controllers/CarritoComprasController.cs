@@ -44,22 +44,23 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult EliminarDelCarrito(int idCarritoItem)
-        {
-            var carritoItem = _context.CarritoItem.Find(idCarritoItem);
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult EliminarDelCarrito(int idCarritoItem)
+		{
+			var carritoItem = _context.CarritoItem.Find(idCarritoItem);
 
-            if (carritoItem != null)
-            {
-                _context.CarritoItem.Remove(carritoItem);
-                _context.SaveChanges();
-            }
+			if (carritoItem != null)
+			{
+				_context.CarritoItem.Remove(carritoItem);
+				_context.SaveChanges();
+			}
 
-            return RedirectToAction(nameof(Index));
-        }
+			return RedirectToAction(nameof(Index));
+		}
 
-        private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)
+
+		private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)
         {
             decimal total = 0;
             foreach (var item in carritoItems)

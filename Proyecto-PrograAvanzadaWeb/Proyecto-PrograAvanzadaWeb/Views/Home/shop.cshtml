@@ -2,19 +2,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model IEnumerable<Proyecto_PrograAvanzadaWeb.Models.Producto>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
 
 <body class="goto-here">
-
-    <div class="hero-wrap hero-bread" style="background-image: url('../images/bg_1.jpg');">
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Producto" asp-action="Index">Inicio</a></span> <span>Productos</span></p>
-                    <h1 class="mb-0 bread">Productos</h1>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="ftco-section">
         <div class="container mt-5">
@@ -24,7 +18,7 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="card product">
                             <a href="#" class="img-prod">
-                                <img class="card-img-top img-fluid" src="@item.RutaImagen" alt="Imagen del producto">
+                                <img class="card-img-top img-fluid" src="@item.RutaImagen" alt="Imagen del producto" style="width: 255px; height: 200px;">
                                 <span class="status">@item.Activo</span>
                                 <div class="overlay"></div>
                             </a>
@@ -37,14 +31,139 @@
                                         </p>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary">Añadir al carrito</button>
+                                <button class="btn btn-primary" onclick="mostrarModal(@item.IdProducto)">Añadir al carrito</button>
                             </div>
                         </div>
                     </div>
                 }
             </div>
-
         </div>
     </section>
 
+    <style>
+        /* Estilos para el modal */
+        #myModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Ajusta el ancho del modal */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+        }
+    </style>
+
+    <!-- Tu HTML del modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agregar al Carrito</h2>
+            <form id="formAgregarCarrito" method="post">
+                <div class="text-center">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" value="1" min="1">
+                </div>
+                <input type="hidden" id="productoId" name="idProducto" value="">
+                <button type="button" class="btn btn-primary" onclick="agregarAlCarrito()">Añadir al carrito</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var modal = document.getElementById("myModal");
+
+        var buttons = document.querySelectorAll(".btn-primary");
+
+        var span = document.querySelector(".close");
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                modal.style.display = "block";
+            });
+        });
+
+        span.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        function mostrarModal(idProducto) {
+            $("#productoId").val(idProducto);
+            modal.style.display = "block";
+        }
+
+        function agregarAlCarrito() {
+            var idProducto = $("#productoId").val();
+            var cantidad = $("#cantidad").val();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AgregarAlCarrito", "CarritoCompras")",
+                data: { idProducto: idProducto, cantidad: cantidad },
+                success: function (result) {
+                    location.reload();
+                },
+                error: function () {
+                    console.log("Error al agregar el producto al carrito");
+                }
+            });
+        }
+    </script>
 </body>
+
+</html>
