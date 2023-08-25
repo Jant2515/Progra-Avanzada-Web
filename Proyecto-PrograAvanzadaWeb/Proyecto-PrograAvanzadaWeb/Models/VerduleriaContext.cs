@@ -68,12 +68,10 @@ namespace Proyecto_PrograAvanzadaWeb.Models
                 .WithMany(s => s.Producto)
                 .HasForeignKey(f => f.IdCategoria);
   
-
             modelBuilder.Entity<CarritoItem>()
                 .HasOne(ci => ci.Producto)
-                .WithMany()
+                .WithMany(s => s.CarritoItem)
                 .HasForeignKey(ci => ci.IdProducto);
-       
         }
     }
 }

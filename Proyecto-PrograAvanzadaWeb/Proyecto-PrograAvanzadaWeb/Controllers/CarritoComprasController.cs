@@ -23,9 +23,6 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return View(carritoItems);
         }
 
-     
-
-
         public IActionResult AgregarAlCarrito(int idProducto, int cantidad)
         {
             var producto = _context.Producto.Find(idProducto);
@@ -47,6 +44,8 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult EliminarDelCarrito(int idCarritoItem)
         {
             var carritoItem = _context.CarritoItem.Find(idCarritoItem);
@@ -57,7 +56,7 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)

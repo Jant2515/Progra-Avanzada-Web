@@ -20,6 +20,6 @@ namespace Proyecto_PrograAvanzadaWeb.Models
         public int IdCategoria { get; set; }
         public  Categoria? Categoria { get; set; }
 
-
+        public List<CarritoItem>? CarritoItem { get; set; }
     }
 }

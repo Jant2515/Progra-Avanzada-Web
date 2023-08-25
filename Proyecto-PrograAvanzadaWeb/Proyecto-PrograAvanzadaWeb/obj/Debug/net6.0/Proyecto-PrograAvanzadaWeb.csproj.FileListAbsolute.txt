@@ -1111,3 +1111,4 @@ C:\Users\megan\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\P
 C:\Users\megan\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.pdb
 C:\Users\megan\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\Proyecto-PrograAvanzadaWeb.genruntimeconfig.cache
 C:\Users\megan\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\obj\Debug\net6.0\ref\Proyecto-PrograAvanzadaWeb.dll
+C:\Users\josea\Documents\GitHub\Progra-Avanzada-Web\Proyecto-PrograAvanzadaWeb\Proyecto-PrograAvanzadaWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll
