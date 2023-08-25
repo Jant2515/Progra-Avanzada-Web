@@ -32,7 +32,7 @@
                                     total += itemTotal; // Agregar al total
                                     <tr class="text-center">
                                         <td class="product-remove">
-                                            <a data-toggle="modal" data-target="#deleteModal" data-id="@item.IdCarritoItem">
+                                            <a asp-controller="CarritoCompras" asp-action="EliminarDelCarrito" asp-route-id="@item.IdCarritoItem" >
                                                 <span class="ion-ios-close"></span>
                                             </a>
                                         </td>
@@ -61,58 +61,4 @@
         </div>
     </section>
 
-    <!-- Modal para eliminar producto -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Eliminar Producto del Carrito</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que deseas eliminar este producto del carrito?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDelete">Eliminar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @section Scripts {
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-            var deleteItemId = 0;
-
-            $(document).ready(function () {
-                $('#deleteModal').on('show.bs.modal', function (event) {
-                    var button = $(event.relatedTarget);
-                    deleteItemId = button.data('id');
-                });
-
-                $('#confirmDelete').click(function () {
-                    eliminarDelCarrito(deleteItemId);
-                    $('#deleteModal').modal('hide');
-                });
-            });
-
-            function eliminarDelCarrito(idCarritoItem) {
-                $.ajax({
-                    type: "POST",
-                    url: "/CarritoCompras/EliminarDelCarrito",
-                    data: { idCarritoItem: idCarritoItem },
-                    success: function (data) {
-                        location.reload();
-                    },
-                    error: function () {
-                        alert("Error al eliminar el producto del carrito.");
-                    }
-                });
-            }
-        </script>
-    }
 </body>
