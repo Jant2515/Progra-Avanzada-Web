@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
@@ -32,9 +32,7 @@
                                     total += itemTotal; // Agregar al total
                                     <tr class="text-center">
                                         <td class="product-remove">
-                                            <a asp-controller="CarritoCompras" asp-action="EliminarDelCarrito" asp-route-id="@item.IdCarritoItem" >
-                                                <span class="ion-ios-close"></span>
-                                            </a>
+                                            <a class="eliminar-btn" data-id="@item.IdCarritoItem"><span class="ion-ios-close"></span></a>
                                         </td>
                                         <td class="image-prod"><img class="img" src="@item.Producto.RutaImagen" alt="Imagen del producto"></td>
                                         <td class="product-name">@Html.DisplayFor(modelItem => item.Producto.Nombre)</td>
@@ -44,17 +42,18 @@
                                                 <input type="text" name="quantity" class="quantity form-control input-number" value="@item.Cantidad" min="1" max="100">
                                             </div>
                                         </td>
-                                        <td class="total">$@itemTotal</td>
+                                        <td class="total">₡@itemTotal</td>
                                     </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="5" class="text-right"><strong>Total:</strong></td>
-                                    <td><strong>$@total</strong></td>
+                                    <td><strong>₡@total</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
+                        <p><a id="pagoaccion" class="btn btn-primary py-3 px-4">Realizar compra</a></p>
                     </div>
                 </div>
             </div>
@@ -62,3 +61,37 @@
     </section>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".eliminar-btn").click(function() {
+            var idCarritoItem = $(this).data("id");
+
+            $.ajax({
+                url: '@Url.Action("EliminarDelCarrito", "CarritoCompras")',
+                type: 'POST',
+                data: { idCarritoItem: idCarritoItem },
+                success: function() {
+                    // Manejar éxito (por ejemplo, actualizar la vista)
+                    location.reload();
+                },
+                error: function() {
+                    // Manejar error
+                    alert("Error al eliminar el elemento del carrito.");
+                }
+            });
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('pagoaccion').addEventListener('click', function () {
+        Swal.fire({
+            title: 'Compra realizada!',
+            text: 'El pedido fue realizado con exito!',
+            icon: 'success'
+        });
+    });
+</script>

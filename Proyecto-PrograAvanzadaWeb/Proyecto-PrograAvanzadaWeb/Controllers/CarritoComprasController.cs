@@ -44,23 +44,42 @@ namespace Proyecto_PrograAvanzadaWeb.Controllers
             return RedirectToAction("Index");
         }
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public IActionResult EliminarDelCarrito(int idCarritoItem)
-		{
-			var carritoItem = _context.CarritoItem.Find(idCarritoItem);
+        public IActionResult EliminarDelCarrito(int idCarritoItem)
+        {
+            if (idCarritoItem <= 0)
+            {
+                // Manejar el caso de un idCarritoItem inválido
+                return RedirectToAction(nameof(Index));
+            }
 
-			if (carritoItem != null)
-			{
-				_context.CarritoItem.Remove(carritoItem);
-				_context.SaveChanges();
-			}
+            var carritoItem = _context.CarritoItem.SingleOrDefault(item => item.IdCarritoItem == idCarritoItem);
 
-			return RedirectToAction(nameof(Index));
-		}
+            if (carritoItem != null)
+            {
+                try
+                {
+                    _context.CarritoItem.Remove(carritoItem);
+                    _context.SaveChanges();
+
+                    // Agregar mensaje de confirmación a TempData
+                    TempData["Mensaje"] = "El elemento se eliminó del carrito correctamente.";
+                }
+                catch (Exception ex)
+                {
+                    // Manejar cualquier excepción que ocurra
+                    TempData["Error"] = "Ocurrió un error al eliminar el elemento del carrito.";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "El elemento no se encontró en el carrito.";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
 
 
-		private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)
+        private decimal CalcularTotal(IEnumerable<CarritoItem> carritoItems)
         {
             decimal total = 0;
             foreach (var item in carritoItems)
